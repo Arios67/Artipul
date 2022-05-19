@@ -28,6 +28,7 @@
   <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white">
   <img src="https://img.shields.io/badge/GitHub-000000?style=for-the-badge&logo=GitHub&logoColor=white">
   <img src="https://img.shields.io/badge/GCP-4285F4?style=for-the-badge&logo=Google Cloud&logoColor=white">
+  <img src="https://img.shields.io/badge/Express-17202C?style=for-the-badge&logo=Express&logoColor=white">
  
 ## 2. Flow chart & ERD
 * Flow chart <br><br>
