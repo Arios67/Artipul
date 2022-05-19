@@ -2,10 +2,10 @@
 
 <h3>&nbsp;목차</h3>
   
-  &nbsp;&nbsp;&nbsp;[1. 프로젝트 개요 및 사용 기술스택](#1.-프로젝트-개요-및-사용-기술스택)<br>
-  &nbsp;&nbsp;&nbsp;[2. Flow chart & ERD](#2.-flow-chart-&-erd)<br>
-  &nbsp;&nbsp;&nbsp;[3. Data pipeline](#3.-data-pipeline)<br>
-  &nbsp;&nbsp;&nbsp;[4. api 개발 및 권한](#4.-api-개발-및-권한)<br><br>
+  &nbsp;&nbsp;&nbsp;[1. 프로젝트 개요 및 사용 기술스택](#1-프로젝트-개요-및-사용-기술스택)<br>
+  &nbsp;&nbsp;&nbsp;[2. Flow chart & ERD](#2-flow-chart--erd)<br>
+  &nbsp;&nbsp;&nbsp;[3. Data pipeline](#3-data-pipeline)<br>
+  &nbsp;&nbsp;&nbsp;[4. api 개발 및 권한](#4-api-개발-및-권한)<br><br>
   
 ## 1. 프로젝트 개요 및 사용 기술스택
 * Artipul은 미대생들을 위한 온라인 작품 경매 플랫폼입니다. <br><br>
@@ -31,10 +31,14 @@
 
 ## 2. Flow chart & ERD
 * Flow chart <br><br>
-![f](https://user-images.githubusercontent.com/81277145/169238415-f01674f0-9d00-4f5e-8b99-f4bd37f398b1.png)
+![f](https://user-images.githubusercontent.com/81277145/169238415-f01674f0-9d00-4f5e-8b99-f4bd37f398b1.png) <br>
+로그인 유무와 권한분기에 따른 서비스흐름도 입니다. 오픈 api를 사용하는 소셜로그인의 경우, 최초 1회 핸드폰 번호와 닉네임 등 추가 기입 정보를 입력해
+회원가입을 거친 뒤 해당 과정을 거친 계정에 한하여 소셜로그인이 이루어지게 됩니다.
 <br><br>
 * ERD <br><br>
-![art ERD (3)](https://user-images.githubusercontent.com/81277145/169240107-dd14c2a6-bc59-4414-9209-e5833520bfb9.png)
+![art ERD (3)](https://user-images.githubusercontent.com/81277145/169240107-dd14c2a6-bc59-4414-9209-e5833520bfb9.png) <br>
+회원은 작가와 일반 사용자로 나눠지지만 서로 중복되는 요소가 많기 때문에 작가 테이블과 일반 사용자 테이블로 나누기 보단 
+미대생 여부 칼럼으로 둘을 구별하는 방식으로 진행하였습니다.
 <br><br>
 ## 3. Data pipeline
 ![p](https://user-images.githubusercontent.com/81277145/169240966-b43b0cce-3b1d-4658-8968-b6f343c91c86.jpg)
