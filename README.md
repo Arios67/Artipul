@@ -52,8 +52,9 @@ write by backend main 개발자 이재후
  NHN Cloude Service를 이용하였습니다. 입력 받은 핸드폰 번호로 6자리 난수 토큰이 발송되며, redis에 저장된 토큰 값과 비교하여 인증을 진행합니다. 인증을 마친 토큰은 ttl이
  남아있더라도 삭제됩니다. <br><br>
  * 비밀번호 해시 <br><br>
+ ![제목 없음](https://user-images.githubusercontent.com/81277145/169691692-90c006a6-9467-4333-9697-2cd33471982d.png) <br>
  유저가 입력한 비밀번호는 bcrypt를 사용하여 해시된 형태로 DB에 저장되고, 검증됩니다. <br><br>
- 
+
  ### &nbsp;&nbsp;<b>Login</b> <br>
  유저가 입력한 값과 DB에 저장되어 있던 유저의 정보가 일치할 경우, JWT형태의 accessToken과 refreshToken을 발급합니다. <br><br>
  ![162326264-91033a2b-c455-42af-9942-1c9127d83cd5](https://user-images.githubusercontent.com/81277145/169690251-046da31b-c05c-4d99-bc63-35fb5e908fdd.png)<br><br>
