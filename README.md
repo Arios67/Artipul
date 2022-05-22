@@ -1,5 +1,5 @@
 # Artipul project (2022.3.17 ~ 2022.4.4)
-
+write by backend main 개발자 이재후
 <h3>&nbsp;목차</h3>
   
   &nbsp;&nbsp;&nbsp;[1. 프로젝트 개요 및 사용 기술스택](#1-프로젝트-개요-및-사용-기술스택)<br>
@@ -45,6 +45,19 @@
 ![p](https://user-images.githubusercontent.com/81277145/169240966-b43b0cce-3b1d-4658-8968-b6f343c91c86.jpg)
 <br><br>
 
-## 4. api 개발 및 권한
- &nbsp;&nbsp;<B>USER Create</B>
+## 4. api 개발 및 배포
+ ### &nbsp;&nbsp;<b>USER Create</b> <br>
+ * 휴대폰 번호 인증 <br><br>
+ ![KakaoTalk_20220522_144838178](https://user-images.githubusercontent.com/81277145/169689266-233d1ef5-dea1-435b-a826-f726e83d2925.png)<br>
+ NHN Cloude Service를 이용하였습니다. 입력 받은 핸드폰 번호로 6자리 난수 토큰이 발송되며, redis에 저장된 토큰 값과 비교하여 인증을 진행합니다. 인증을 마친 토큰은 ttl이
+ 남아있더라도 삭제됩니다. <br><br>
+ * 비밀번호 해시 <br><br>
+ 유저가 입력한 비밀번호는 bcrypt를 사용하여 해시된 형태로 DB에 저장되고, 검증됩니다. <br><br>
  
+ ### &nbsp;&nbsp;<b>Login</b> <br>
+ 유저가 입력한 값과 DB에 저장되어 있던 유저의 정보가 일치할 경우, JWT형태의 accessToken과 refreshToken을 발급합니다. <br><br>
+ ![162326264-91033a2b-c455-42af-9942-1c9127d83cd5](https://user-images.githubusercontent.com/81277145/169690251-046da31b-c05c-4d99-bc63-35fb5e908fdd.png)<br><br>
+
+### &nbsp;&nbsp;<b>Logout</b> <br>
+Client의 로그아웃 요청 시 요청 헤더에 포함된 accessToken과 refreshToken을 받아 verify함수를 통해 검증한 뒤, redis에 blacklist로 저장합니다. 이 때 ttl값은 토큰의 남은 만료기간으로 설정됩니다. 
+
