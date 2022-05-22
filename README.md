@@ -5,7 +5,7 @@ write by backend main 개발자 이재후
   &nbsp;&nbsp;&nbsp;[1. 프로젝트 개요 및 사용 기술스택](#1-프로젝트-개요-및-사용-기술스택)<br>
   &nbsp;&nbsp;&nbsp;[2. Flow chart & ERD](#2-flow-chart--erd)<br>
   &nbsp;&nbsp;&nbsp;[3. Data pipeline](#3-data-pipeline)<br>
-  &nbsp;&nbsp;&nbsp;[4. api 개발 및 권한](#4-api-개발-및-권한)<br><br>
+  &nbsp;&nbsp;&nbsp;[4. api 개발 및 권한](#4-api-개발-및-배포)<br><br>
   
 ## 1. 프로젝트 개요 및 사용 기술스택
 * Artipul은 미대생들을 위한 온라인 작품 경매 플랫폼입니다. <br><br>
