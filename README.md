@@ -38,7 +38,7 @@ write by backend main 개발자 이재후
 <br><br>
 * ERD <br><br>
 ![art ERD (3)](https://user-images.githubusercontent.com/81277145/169240107-dd14c2a6-bc59-4414-9209-e5833520bfb9.png) <br>
-회원은 작가와 일반 사용자로 나눠지지만 서로 중복되는 요소가 많기 때문에 작가 테이블과 일반 사용자 테이블로 나누기 보단 
+회원은 작가와 일반 사용자로 나눠지지만 서로 중복되는 요소가 많기 때문에 작가 테이블과 일반 사용자 테이블로 분리시키지 않고 
 미대생 여부 칼럼으로 둘을 구별하는 방식으로 진행하였습니다.
 <br><br>
 ## 3. Data pipeline
@@ -56,9 +56,15 @@ write by backend main 개발자 이재후
  유저가 입력한 비밀번호는 bcrypt를 사용하여 해시된 형태로 DB에 저장되고, 검증됩니다. <br><br>
 
  ### &nbsp;&nbsp;<b>Login</b> <br>
- 유저가 입력한 값과 DB에 저장되어 있던 유저의 정보가 일치할 경우, JWT형태의 accessToken과 refreshToken을 발급합니다. <br><br>
+ 유저가 입력한 값과 DB에 저장되어 있던 유저의 정보가 일치할 경우, JWT형태의 accessToken과 refreshToken을 발급합니다.<br>보안을 위해 accessToken은 짧은 만료기간을 가지고 로컬 변수에 저장되며, refreshToken은 http Only Secure 쿠키에 저장됩니다.<br>이후 각 토큰에 대한 strategy와 guard를 통해 권한을 분기하고, payload 유저 정보를 사용할 수 있습니다.<br><br>
  ![162326264-91033a2b-c455-42af-9942-1c9127d83cd5](https://user-images.githubusercontent.com/81277145/169690251-046da31b-c05c-4d99-bc63-35fb5e908fdd.png)<br><br>
 
 ### &nbsp;&nbsp;<b>Logout</b> <br>
-Client의 로그아웃 요청 시 요청 헤더에 포함된 accessToken과 refreshToken을 받아 verify함수를 통해 검증한 뒤, redis에 blacklist로 저장합니다. 이 때 ttl값은 토큰의 남은 만료기간으로 설정됩니다. 
+Client의 로그아웃 요청 시 요청 헤더에 포함된 accessToken과 refreshToken을 받아 verify함수를 통해 검증한 뒤, redis에 blacklist로 저장합니다. 이 때 저장되는 TTL값은 토큰의 남은 만료기간으로 설정됩니다.<br><br> 
 
+### &nbsp;&nbsp;<b>경매 API</b> <br>
+작품 등록 시 설정한 마감 시간이 지나면 작품에 따라 낙찰 또는 유찰 처리되며, 이는 nestJS의 Task Scheduling 기능을 통해 특정 시간마다 DB를 확인하는 방식으로 구현되었습니다.<br>
+RDB와 비관계형 In-memory DB의 특성에 따라, Client의 첫 입찰 요청 시 사용자 별 경매 참여 중인 작품 정보는 MySQL에 저장되며<br> 이후 실시간으로 빠르게 변동되는 작품 별 최고입찰가의 경우 redis에 저장되고 갱신 값이 Client에게 실시간으로 노출됩니다.<br><br> 
+![163166653-25db1000-ef26-4940-8c7f-45fe577059dd](https://user-images.githubusercontent.com/81277145/175930625-34a5734d-c7c7-406d-bb0f-6329a2eb82b7.gif)
+
+### &nbsp;&nbsp;<b>서버 배포</b> <br>
