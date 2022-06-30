@@ -1,5 +1,5 @@
 # Artipul project (2022.3.17 ~ 2022.4.4)
-write by backend main 개발자 이재후
+write by backend 개발자 이재후
 <h3>&nbsp;목차</h3>
   
   &nbsp;&nbsp;&nbsp;[1. 프로젝트 개요 및 사용 기술스택](#1-프로젝트-개요-및-사용-기술스택)<br>
