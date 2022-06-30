@@ -49,7 +49,7 @@ write by backend 개발자 이재후
  ### &nbsp;&nbsp;<b>USER Create</b> <br>
  * 휴대폰 번호 인증 <br><br>
  ![KakaoTalk_20220522_144838178](https://user-images.githubusercontent.com/81277145/169689266-233d1ef5-dea1-435b-a826-f726e83d2925.png)<br>
- NHN Cloude Service를 이용하였습니다. 입력 받은 핸드폰 번호로 6자리 난수 토큰이 발송되며, redis에 저장된 토큰 값과 비교하여 인증을 진행합니다.<br>인증을 마친 토큰은 ttl이
+ NHN Cloude Service를 이용하였습니다. 입력 받은 핸드폰 번호로 6자리 난수 토큰이 발송되며, redis에 저장된 토큰 값과 비교하여 인증을 진행합니다. 인증을 마친 토큰은 ttl이
  남아있더라도 삭제됩니다. <br><br>
  * 비밀번호 해시 <br><br>
  ![제목 없음](https://user-images.githubusercontent.com/81277145/169691692-90c006a6-9467-4333-9697-2cd33471982d.png) <br>
@@ -64,7 +64,7 @@ Client의 로그아웃 요청 시 요청 헤더에 포함된 accessToken과 refr
 
 ### &nbsp;&nbsp;<b>경매 API</b> <br>
 작품 등록 시 설정한 마감 시간이 지나면 작품에 따라 낙찰 또는 유찰 처리되며, 이는 nestJS의 Task Scheduling 기능을 통해 특정 시간마다 DB를 확인하는 방식으로 구현되었습니다.<br>
-RDB와 비관계형 In-memory DB의 특성에 따라, Client의 첫 입찰 요청 시 사용자 별 경매 참여 중인 작품 정보는 MySQL에 저장되며<br> 이후 실시간으로 빠르게 변동되는 작품 별 최고입찰가의 경우 redis에 저장되고 갱신 값이 Client에게 실시간으로 노출됩니다.<br><br> 
+RDB와 비관계형 In-memory DB의 특성에 따라, Client의 첫 입찰 요청 시 사용자 별 경매 참여 중인 작품 정보는 MySQL에 저장되며 이후 실시간으로 빠르게 변동되는 작품 별 최고입찰가의 경우 redis에 저장되고 갱신 값이 Client에게 실시간으로 노출됩니다.<br><br> 
 ![163166653-25db1000-ef26-4940-8c7f-45fe577059dd](https://user-images.githubusercontent.com/81277145/175930625-34a5734d-c7c7-406d-bb0f-6329a2eb82b7.gif)<br><br><br>
 
 ### &nbsp;&nbsp;<b>서버 배포</b> <br>
