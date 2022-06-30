@@ -68,7 +68,7 @@ RDB와 비관계형 In-memory DB의 특성에 따라, Client의 첫 입찰 요�
 ![163166653-25db1000-ef26-4940-8c7f-45fe577059dd](https://user-images.githubusercontent.com/81277145/175930625-34a5734d-c7c7-406d-bb0f-6329a2eb82b7.gif)<br><br><br>
 
 ### &nbsp;&nbsp;<b>서버 배포</b> <br>
-* GCP를 이용하였으며, 다음은 서버 배포 형태입니다. 개발 시 수동테스트 수행을 위한 테스트 환경 또한 동일합니다.<br><br>
+* GCP를 이용하였으며, 다음은 서버 배포 형태입니다. 개발 시 수동테스트를 위한 테스트 환경 또한 동일합니다.<br><br>
  ![1](https://user-images.githubusercontent.com/81277145/176672375-ff381e97-c54d-4e9b-8dfe-123e67f7f1b9.png)<br>
  
 * 구글에서 지원하는 SSL 인증서를 이용하여 보안을 강화하고, 서버 부하 분산을 통한 안정성을 높이기 위해<br>로드밸런서와 인스턴스 그룹을 연결한 뒤 주기적으로 health-checking 하도록 설정하였습니다. 
