@@ -33,7 +33,7 @@ write by backend 개발자 이재후
 ## 2. Flow chart & ERD
 * Flow chart <br><br>
 ![f](https://user-images.githubusercontent.com/81277145/169238415-f01674f0-9d00-4f5e-8b99-f4bd37f398b1.png) <br>
-권한분기에 따른 서비스흐름도 입니다. 오픈 api를 사용하는 소셜로그인의 경우, 최초 1회 핸드폰 번호와 닉네임 등 추가 기입 정보를 입력해
+권한분기에 따른 서비스흐름도 입니다.<br>오픈 api를 사용하는 소셜로그인의 경우, 최초 1회 핸드폰 번호와 닉네임 등 추가 기입 정보를 입력해
 회원가입을 거친 뒤 해당 과정을 거친 계정에 한하여 소셜로그인이 이루어지게 됩니다.
 <br><br>
 * ERD <br><br>
