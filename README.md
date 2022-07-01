@@ -42,7 +42,7 @@ write by backend 이재후
 미대생 여부 칼럼으로 둘을 구별하는 방식으로 진행하였습니다.
 <br><br>
 ## 3. Data pipeline
-![p](https://user-images.githubusercontent.com/81277145/169240966-b43b0cce-3b1d-4658-8968-b6f343c91c86.jpg)
+![169240966-b43b0cce-3b1d-4658-8968-b6f343c91c86](https://user-images.githubusercontent.com/81277145/176828837-cd6f7198-0a12-4f2f-9d10-839452a53c6b.jpg)
 <br><br>
 
 ## 4. api 개발 및 배포
