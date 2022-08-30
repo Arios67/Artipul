@@ -41,10 +41,10 @@ import { EventModule } from './apis/event/event.module';
     }),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'my_database',
+      host: process.env.MY_DATABASE,
       port: 3306,
       username: 'root',
-      password: '3160',
+      password: process.env.DB_PW,
       database: 'ars',
       entities: [__dirname + '/apis/**/*.entity.*'],
       synchronize: true,
@@ -52,7 +52,7 @@ import { EventModule } from './apis/event/event.module';
     }),
     CacheModule.register<RedisClientOptions>({
       store: redisStore,
-      url: 'redis://my_redis:6379',
+      url: process.env.MY_REDIS,
       isGlobal: true,
     }),
     ScheduleModule.forRoot(),
